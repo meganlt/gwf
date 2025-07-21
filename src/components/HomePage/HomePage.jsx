@@ -1,4 +1,5 @@
 import useStore from '../../zustand/store'
+import { Button } from "@/components/ui/button"
 
 
 function HomePage() {
@@ -7,12 +8,12 @@ function HomePage() {
 
   return (
     <>
-      <h2>Home Page</h2>
+      <h1 className="text-3xl">Home Page</h1>
       <p>Your username is: {user.username}</p>
       <p>Your ID is: {user.id}</p>
-      <button onClick={logOut}>
+      <Button variant="outline" onClick={logOut}>
         Log Out
-      </button>
+      </Button>
     </>
   );
 }

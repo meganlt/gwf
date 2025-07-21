@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import useStore from '../../zustand/store';
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
 
 function LoginPage() {
@@ -30,7 +32,7 @@ function LoginPage() {
       <h2>Login Page</h2>
       <form onSubmit={handleLogIn}>
         <label htmlFor="username">Email:</label>
-        <input
+        <Input
           type="text"
           id="username"
           required
@@ -45,9 +47,9 @@ function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">
+        <Button type="submit">
           Log In
-        </button>
+        </Button>
       </form>
       { // Conditionally render login error:
         errorMessage && (
