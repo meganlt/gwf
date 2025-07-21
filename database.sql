@@ -10,10 +10,20 @@ DROP TABLE IF EXISTS "user";
 -- TABLE SCHEMAS:
 CREATE TABLE "user" (
   "id" SERIAL PRIMARY KEY,
-  "username" VARCHAR (80) UNIQUE NOT NULL,
+  "username" VARCHAR (255) UNIQUE NOT NULL,
   "password" VARCHAR (1000) NOT NULL,
   "inserted_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
-  "updated_at" TIMESTAMPTZ NOT NULL DEFAULT now()
+  "updated_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
+  "role" VARCHAR (80),
+  "first_name" VARCHAR (255),
+  "last_name" VARCHAR (255),
+  "prounouns" VARCHAR (255),
+  "gender_identity" VARCHAR (255),
+  "age" INT,
+  "period_status" VARCHAR(80),
+  "puberty_status" VARCHAR(80),
+  "personality_on" BOOLEAN,
+  "avatar" VARCHAR(1000) 
 );
 
 
