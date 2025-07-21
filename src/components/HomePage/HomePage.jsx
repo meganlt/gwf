@@ -7,7 +7,7 @@ function HomePage() {
 
   return (
     <>
-      <h2>Home Page</h2>
+      <h1 class="text-3xl">Home Page</h1>
       <p>Your username is: {user.username}</p>
       <p>Your ID is: {user.id}</p>
       <button onClick={logOut}>
