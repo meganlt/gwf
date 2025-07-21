@@ -29,7 +29,7 @@ function RegisterPage() {
     <>
       <h2>Register Page</h2>
       <form onSubmit={handleRegister}>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">Email:</label>
         <input
           type="text"
           id="username"
