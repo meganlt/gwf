@@ -1,4 +1,4 @@
-# Prime Solo Project - Starting Repo
+# Grow With Flora
 
 This version uses React, Zustand, Express, Passport, and PostgreSQL. (A full list of dependencies can be found in `package.json`.)
 
