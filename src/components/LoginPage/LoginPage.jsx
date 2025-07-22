@@ -50,6 +50,10 @@ function LoginPage() {
         <Button variant="primary" size="fixed" type="submit">
           Log In
         </Button>
+        {/* tester button for secondary button color styling */}
+         <Button variant="secondary" size="fixed" type="submit">
+          Log In
+        </Button>
       </form>
       { // Conditionally render login error:
         errorMessage && (
