@@ -2,6 +2,15 @@ import { useState, useEffect } from 'react';
 import useStore from '../../zustand/store';
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 
 function LoginPage() {
@@ -29,29 +38,48 @@ function LoginPage() {
 
   return (
     <>
+
+
+<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card Description</CardDescription>
+    <CardAction>Card Action</CardAction>
+  </CardHeader>
+  <CardContent>
+    <p>Card Content</p>
+  </CardContent>
+  <Button variant="primary" size="fixedsm" type="submit">
+          Log In
+        </Button>
+</Card>
+
+
       <h2>Login Page</h2>
       <form onSubmit={handleLogIn}>
-        <label htmlFor="username">Email:</label>
+        <label htmlFor="username">Email</label>
         <Input
+          placeholder="Enter email"
           type="text"
           id="username"
           required
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password">Password:</label>
-        <input
+        <label htmlFor="password">Password</label>
+        <Input
+          placeholder="Enter password"
           type="password"
           id="password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button variant="primary" size="fixed" type="submit">
+        <Button variant="primary" size="fixedlrg" type="submit">
           Log In
         </Button>
         {/* tester button for secondary button color styling */}
-         <Button variant="secondary" size="fixed" type="submit">
+         <Button variant="secondary" size="fixedlrg" type="submit">
           Log In
         </Button>
       </form>
