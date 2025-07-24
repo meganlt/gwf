@@ -2,18 +2,90 @@ import React from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import {
+  ChatBubble,
+  ChatBubbleAvatar,
+  ChatBubbleMessage,
+  ChatBubbleTimestamp,
+  chatBubbleVariant,
+  chatBubbleMessageVariants,
+  ChatBubbleAction,
+  ChatBubbleActionWrapper,
+} from '../ui/chat/chat-bubble';
+import {
+  ExpandableChat,
+  ExpandableChatHeader,
+  ExpandableChatBody,
+  ExpandableChatFooter,
+} from '../ui/chat/expandable-chat';
+import { ChatMessageList } from '../ui/chat/chat-message-list';
+import { ChatInput } from '../ui/chat/chat-input';
+import MessageLoading from '../ui/chat/message-loading';
 
 function ChatPage() {
+  const messages = [
+    {
+      id: 1,
+      message: "Hover me!",
+      sender: "user",
+    },
+    {
+      id: 2,
+      message: "Hover me too!",
+      sender: "bot",
+    },
+    {
+      id: 3,
+      message: "",
+      sender: "bot",
+      isLoading: true,
+    },
+  ];
+
+
+   const actionIcons = [];
+  
   return (
     <main className="flex flex-col h-screen bg-muted">
       <Card className="flex flex-col flex-1 max-w-2xl w-full mx-auto my-6 shadow-lg">
         <CardContent className="flex flex-col flex-1 p-4 space-y-4 overflow-y-auto">
-          <h1 className="text-2xl font-semibold text-center">Chat with Diana</h1>
+          <h1 className="text-2xl font-semibold text-center">
+            Chat with Diana
+          </h1>
           <div className="flex-1 space-y-2 overflow-y-auto">
-            {/* Messages will go here */}
+            <ChatMessageList>
+              {messages.map((message, index) => {
+                const variant = message.sender === "user" ? "sent" : "received";
+                return (
+                  <ChatBubble key={message.id} variant={variant}>
+                    {/* <ChatBubbleAvatar fallback={variant === "sent" ? "US" : "AI"} /> */}
+                    <ChatBubbleMessage
+                      isLoading={message.isLoading}
+                      className={message.sender === "user" ? "bg-sky-400" : ""}
+                    >
+                      {message.message}
+                    </ChatBubbleMessage>
+                    {/* Action Icons */}
+                    <ChatBubbleActionWrapper>
+                      {actionIcons.map(({ icon: Icon, type }) => (
+                        <ChatBubbleAction
+                          className="size-7"
+                          key={type}
+                          icon={<Icon className="size-4" />}
+                          onClick={() =>
+                            console.log(
+                              "Action " + type + " clicked for message " + index,
+                            )
+                          }
+                        />
+                      ))}
+                    </ChatBubbleActionWrapper>
+                  </ChatBubble>
+                );
+              })}
+            </ChatMessageList>
           </div>
         </CardContent>
-
         <form className="flex items-center gap-2 border-t p-4">
           <Input
             type="text"
