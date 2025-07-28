@@ -28,7 +28,7 @@ function HomePage() {
       </section>
       
       <section className='home-content bg-white p-6 rounded-2xl'>
-        <Card className='mb-6'>
+        <Card className='mb-6 bg-secondary'>
           <CardContent className='flex'>
             <div>
               <h2>Talk to Diana</h2>
@@ -38,8 +38,8 @@ function HomePage() {
             <img src="diana-bubble.png" alt="Image of Diana in a bubble"/>
           </CardContent>
         </Card>
-        <h2 className='text-2xl font-bold'>I want to learn</h2>
-        <Card>
+        <h2 className='text-2xl font-bold mb-4'>I want to learn</h2>
+        <Card className='bg-accent'>
           <CardContent className='flex'>
             <div className='course-img bg-florapurple rounded-2xl mr-4'>
               <img src="avatar-bee.png"/>
