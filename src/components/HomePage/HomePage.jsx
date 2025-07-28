@@ -33,7 +33,7 @@ function HomePage() {
             <div>
               <h2>Talk to Diana</h2>
               <p>Have a question or want to talk. Diana is here for you.</p>
-              <Button asChild><a href="#">(icon) Let's Chat</a></Button>
+              <Button asChild><a href="/chat-page">(icon) Let's Chat</a></Button>
             </div>
             <img src="diana-bubble.png" alt="Image of Diana in a bubble"/>
           </CardContent>

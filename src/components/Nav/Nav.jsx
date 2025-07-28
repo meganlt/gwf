@@ -26,7 +26,7 @@ function Nav() {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
-            <li><NavLink to="/diana">Diana</NavLink></li>
+            <li><NavLink to="/chat-page">Diana</NavLink></li>
             <li><NavLink to="/profile">User Profile</NavLink></li>
           </>
         )
