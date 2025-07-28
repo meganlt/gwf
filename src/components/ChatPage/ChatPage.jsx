@@ -55,8 +55,8 @@ function ChatPage() {
                       <AvatarImage
                         src={
                           variant === 'sent'
-                            ? '/user-avatar.png'
-                            : '/ai-avatar.png'
+                            ? '/avatar-mouse.png'
+                            : '/diana-bubble.png'
                         }
                         alt="Avatar"
                       />
