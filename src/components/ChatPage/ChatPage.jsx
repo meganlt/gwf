@@ -17,27 +17,44 @@ import { ChatInput } from '../ui/chat/chat-input';
 import MessageLoading from '../ui/chat/message-loading';
 
 function ChatPage() {
+  function formatTimestamp(date) {
+    const now = new Date();
+    const messageDate = new Date(date);
+    const isToday = now.toDateString() === messageDate.toDateString();
+
+    if (isToday) {
+      return messageDate.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+    } else {
+      return messageDate.toLocaleDateString([], {
+        month: 'short',
+        day: 'numeric',
+      });
+    }
+  }
   const messages = [
     {
       id: 1,
-      message: 'Hover me!',
-      sender: 'user',
-      timestamp: new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
+      message: 'This is from yesterday',
+      sender: 'bot',
+      createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000), // Yesterday - will show yesterday's date
     },
     {
       id: 2,
-      message: 'Hover me too!',
-      sender: 'bot',
-      timestamp: new Date(Date.now() - 2 * 60000).toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }), // 2 minutes ago
+      message: 'Hover me!',
+      sender: 'user',
+      createdAt: new Date(), // Today's message - will show time
     },
     {
       id: 3,
+      message: 'Hover me too!',
+      sender: 'bot',
+      createdAt: new Date(Date.now() - 2 * 60000), // 2 minutes ago - will show time
+    },
+    {
+      id: 4,
       message: '',
       sender: 'bot',
       isLoading: true,
@@ -83,9 +100,9 @@ function ChatPage() {
                       {message.message}
                     </ChatBubbleMessage>
                     {/* Action Icons */}
-                    {message.timestamp && (
+                    {message.createdAt && (
                       <ChatBubbleTimestamp
-                        timestamp={message.timestamp}
+                        timestamp={formatTimestamp(message.createdAt)}
                         className={
                           variant === 'sent' ? 'text-right' : 'text-left'
                         }
