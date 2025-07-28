@@ -1,37 +1,61 @@
 import useStore from '../../zustand/store'
 import { Button } from "@/components/ui/button"
-
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 function HomePage() {
   const user = useStore((state) => state.user);
   const logOut = useStore((state) => state.logOut);
 
   return (
-    <>
-      <h1 className="text-3xl">Home Page</h1>
-      <img src="avatar-mouse.png" alt="Your avatar image"/>
-      <p>Hey, {user.username}</p>
-      <p>Your ID is: {user.id}</p>
-      <p>What would you like to do today?</p>
-      <Button variant="outline" onClick={logOut}>
-        Log Out
-      </Button>
-      <section>
-        <img src="diana-bubble.png" alt="Image of Diana in a bubble"/>
-        <h2>Talk to Diana</h2>
-        <p>Have a question or want to talk. Diana is here for you.</p>
-        <Button asChild><a href="#">(icon) Let's Chat</a></Button>
+    <div className='home-content bg-accent'>
+      <section className='home-intro p-6'>
+        <h1 className="text-3xl">Home Page</h1>
+        <img src="avatar-mouse.png" alt="Your avatar image"/>
+        <p className='text-4xl text-accent-foreground'>Hey, {user.username}</p>
+        <p>Your ID is: {user.id}</p>
+        <p>What would you like to do today?</p>
+        <Button variant="outline" onClick={logOut}>
+          Log Out
+        </Button>
       </section>
-      <section>
-        <h2>I want to learn</h2>
-        <div className='course-card'>
-          <img src="https://placecats.com/100/200"/>
-          <h3>Sprouting Up</h3>
-          <p>When signs of growth start to appear let’s be prepared!</p>
-           <Button asChild><a href="#">Begin Course</a></Button>
-        </div>
+      
+      <section className='home-content bg-white p-6 rounded-2xl'>
+        <Card className='mb-6'>
+          <CardContent className='flex'>
+            <div>
+              <h2>Talk to Diana</h2>
+              <p>Have a question or want to talk. Diana is here for you.</p>
+              <Button asChild><a href="#">(icon) Let's Chat</a></Button>
+            </div>
+            <img src="diana-bubble.png" alt="Image of Diana in a bubble"/>
+          </CardContent>
+        </Card>
+        <h2 className='text-2xl font-bold'>I want to learn</h2>
+        <Card>
+          <CardContent className='flex'>
+            <div className='course-img bg-florapurple rounded-2xl mr-4'>
+              <img src="avatar-bee.png"/>
+            </div>
+            
+            <div className='course-card'>
+              
+              <h3>Sprouting Up</h3>
+              <p>When signs of growth start to appear let’s be prepared!</p>
+              <Button asChild><a href="#">Begin Course</a></Button>
+            </div>
+          </CardContent>
+        </Card>
       </section>
-    </>
+      
+    </div>
   );
 }
 
