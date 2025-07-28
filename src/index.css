@@ -1,10 +1,10 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 /* Box-Sizing Fix: */
-  /* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+/* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 *,
 *::before,
 *::after {
@@ -12,7 +12,8 @@
 }
 
 /* Remove Margin/Padding: */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -32,14 +33,15 @@ body {
 }
 
 #root > * {
-  padding: 0 20px
+  padding: 0 20px;
 }
 
 main {
   flex-grow: 1;
 }
 
-header, footer {
+header,
+footer {
   display: flex;
   flex-basis: 6em;
   align-items: center;
@@ -93,9 +95,10 @@ button {
   margin-top: 10px;
 }
 
-button:hover, button:focus {
+button:hover,
+button:focus {
   outline-color: transparent;
-  outline-style:solid;
+  outline-style: solid;
   box-shadow: 0 0 3px 1px #20c997;
   transition: 0.7s;
 }
@@ -153,10 +156,10 @@ button:hover, button:focus {
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.6237 0.1992 2.8211);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.9232 0.0394 245.8974);
+  --secondary-foreground: oklch(0.2304 0.0209 264.0365);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);

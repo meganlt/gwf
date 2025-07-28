@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   ChatBubble,
-  ChatBubbleAvatar,
   ChatBubbleMessage,
   ChatBubbleTimestamp,
   chatBubbleVariant,
@@ -12,12 +11,7 @@ import {
   ChatBubbleAction,
   ChatBubbleActionWrapper,
 } from '../ui/chat/chat-bubble';
-import {
-  ExpandableChat,
-  ExpandableChatHeader,
-  ExpandableChatBody,
-  ExpandableChatFooter,
-} from '../ui/chat/expandable-chat';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { ChatMessageList } from '../ui/chat/chat-message-list';
 import { ChatInput } from '../ui/chat/chat-input';
 import MessageLoading from '../ui/chat/message-loading';
@@ -57,10 +51,26 @@ function ChatPage() {
                 const variant = message.sender === 'user' ? 'sent' : 'received';
                 return (
                   <ChatBubble key={message.id} variant={variant}>
-                    {/* <ChatBubbleAvatar fallback={variant === "sent" ? "US" : "AI"} /> */}
+                    <Avatar className="size-8">
+                      <AvatarImage
+                        src={
+                          variant === 'sent'
+                            ? '/user-avatar.png'
+                            : '/ai-avatar.png'
+                        }
+                        alt="Avatar"
+                      />
+                      <AvatarFallback>
+                        {variant === 'sent' ? 'US' : 'AI'}
+                      </AvatarFallback>
+                    </Avatar>
                     <ChatBubbleMessage
                       isLoading={message.isLoading}
-                      className={message.sender === 'user' ? 'bg-sky-400' : ''}
+                      className={
+                        message.sender === 'user'
+                          ? 'color-primary'
+                          : 'color-secondary'
+                      }
                     >
                       {message.message}
                     </ChatBubbleMessage>

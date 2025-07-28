@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-// import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import MessageLoading from "./message-loading";
 import { Button } from "../button";
 
@@ -157,7 +157,7 @@ ChatBubbleActionWrapper.displayName = "ChatBubbleActionWrapper";
 
 export {
   ChatBubble,
-  ChatBubbleAvatar,
+  Avatar,
   ChatBubbleMessage,
   ChatBubbleTimestamp,
   chatBubbleVariant,
