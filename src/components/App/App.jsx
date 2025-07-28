@@ -11,6 +11,7 @@ import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Profile from '../Profile/Profile';
+import ChatPage from '../ChatPage/ChatPage';
 
 function App() {
   const user = useStore((state) => state.user);
@@ -107,6 +108,7 @@ function App() {
               <h2>404 Page</h2>
             } 
           />
+          <Route exact path="/chat-page" element={<ChatPage />}/>
         </Routes>
       </main>
       <footer>
