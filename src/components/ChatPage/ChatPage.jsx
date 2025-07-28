@@ -22,11 +22,19 @@ function ChatPage() {
       id: 1,
       message: 'Hover me!',
       sender: 'user',
+      timestamp: new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+      }),
     },
     {
       id: 2,
       message: 'Hover me too!',
       sender: 'bot',
+      timestamp: new Date(Date.now() - 2 * 60000).toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+      }), // 2 minutes ago
     },
     {
       id: 3,
@@ -42,7 +50,7 @@ function ChatPage() {
     <main className="flex flex-col h-screen bg-muted">
       <Card className="flex flex-col flex-1 max-w-2xl w-full mx-auto my-6 shadow-lg">
         <CardContent className="flex flex-col flex-1 p-4 space-y-4 overflow-y-auto">
-          <h1 className="text-2xl font-semibold text-center">
+          <h1 className="text-2xl font-semibold text-center text-primary">
             Chat with Diana
           </h1>
           <div className="flex-1 space-y-2 overflow-y-auto">
@@ -75,6 +83,14 @@ function ChatPage() {
                       {message.message}
                     </ChatBubbleMessage>
                     {/* Action Icons */}
+                    {message.timestamp && (
+                      <ChatBubbleTimestamp
+                        timestamp={message.timestamp}
+                        className={
+                          variant === 'sent' ? 'text-right' : 'text-left'
+                        }
+                      />
+                    )}
                     <ChatBubbleActionWrapper>
                       {actionIcons.map(({ icon: Icon, type }) => (
                         <ChatBubbleAction
