@@ -10,7 +10,7 @@ import Nav from '../Nav/Nav';
 import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import Profile from '../Profile/Profile';
 
 function App() {
   const user = useStore((state) => state.user);
@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>Prime Solo Project</h1>
+        <h1><img src="flora-logo.png" alt="Flora Web App"/></h1>
         <Nav />
       </header>
       <main>
@@ -53,6 +53,16 @@ function App() {
             element={
               user.id ? (
                 <Navigate to="/" replace /> // Redirect authenticated user.
+              ) : (
+                <RegisterPage /> // Render RegisterPage for unauthenticated user.
+              )
+            }
+          />
+          <Route 
+            exact path="/profile"
+            element={
+              user.id ? (
+                <Profile /> // Redirect authenticated user.
               ) : (
                 <RegisterPage /> // Render RegisterPage for unauthenticated user.
               )
