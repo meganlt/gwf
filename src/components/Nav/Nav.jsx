@@ -26,13 +26,15 @@ function Nav() {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
+            <li><NavLink to="/diana">Diana</NavLink></li>
+            <li><NavLink to="/profile">User Profile</NavLink></li>
           </>
         )
       }
       {/* Show these links regardless of auth status: */}
-        <li>
+        {/* <li>
           <NavLink to="/about">About</NavLink>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
