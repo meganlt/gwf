@@ -10,6 +10,7 @@ import Nav from '../Nav/Nav';
 import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ChatPage from '../ChatPage/ChatPage';
 
 
 function App() {
@@ -97,6 +98,7 @@ function App() {
               <h2>404 Page</h2>
             } 
           />
+          <Route exact path="/chat-page" element={<ChatPage />}/>
         </Routes>
       </main>
       <footer>
