@@ -12,19 +12,15 @@ import {
 
 function HomePage() {
   const user = useStore((state) => state.user);
-  const logOut = useStore((state) => state.logOut);
 
   return (
     <div className='home-content bg-accent'>
       <section className='home-intro p-6'>
-        <h1 className="text-3xl">Home Page</h1>
+        <h1 className="hidden">Home Page</h1>
         <img src="avatar-mouse.png" alt="Your avatar image"/>
         <p className='text-4xl text-accent-foreground'>Hey, {user.username}</p>
-        <p>Your ID is: {user.id}</p>
         <p>What would you like to do today?</p>
-        <Button variant="outline" onClick={logOut}>
-          Log Out
-        </Button>
+        
       </section>
       
       <section className='home-content bg-white p-6 rounded-2xl'>
