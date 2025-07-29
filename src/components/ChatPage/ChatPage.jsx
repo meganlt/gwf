@@ -7,15 +7,12 @@ import {
   ChatBubble,
   ChatBubbleMessage,
   ChatBubbleTimestamp,
-  chatBubbleVariant,
-  chatBubbleMessageVariants,
   ChatBubbleAction,
   ChatBubbleActionWrapper,
 } from '../ui/chat/chat-bubble';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { ChatMessageList } from '../ui/chat/chat-message-list';
 import { ChatInput } from '../ui/chat/chat-input';
-import MessageLoading from '../ui/chat/message-loading';
 
 function ChatPage() {
   function formatTimestamp(isoString) {
@@ -125,7 +122,7 @@ function ChatPage() {
           </div>
         </CardContent>
         <form className="flex items-center gap-2 border-t p-4">
-          <Input
+          <ChatInput
             type="text"
             placeholder="Type your message..."
             className="flex-1"
