@@ -1,4 +1,5 @@
 import React from 'react';
+import { DateTime } from 'luxon';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -17,41 +18,36 @@ import { ChatInput } from '../ui/chat/chat-input';
 import MessageLoading from '../ui/chat/message-loading';
 
 function ChatPage() {
-  function formatTimestamp(date) {
-    const now = new Date();
-    const messageDate = new Date(date);
-    const isToday = now.toDateString() === messageDate.toDateString();
+  function formatTimestamp(isoString) {
+    const now = DateTime.now();
+    const messageDate = DateTime.fromISO(isoString);
+    const isToday = now.hasSame(messageDate, 'day');
 
-    if (isToday) {
-      return messageDate.toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      });
+ if (isToday) {
+      return messageDate.toLocaleString(DateTime.TIME_SIMPLE);
     } else {
-      return messageDate.toLocaleDateString([], {
-        month: 'short',
-        day: 'numeric',
-      });
+      return messageDate.toLocaleString({ month: 'short', day: 'numeric' });
     }
   }
+
   const messages = [
     {
       id: 1,
       message: 'This is from yesterday',
       sender: 'bot',
-      createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000), // Yesterday - will show yesterday's date
+      createdAt: DateTime.now().minus({ days: 1 }).toISO(), // Yesterday as ISO string
     },
     {
       id: 2,
       message: 'Hover me!',
       sender: 'user',
-      createdAt: new Date(), // Today's message - will show time
+      createdAt: DateTime.now().toISO(), // Now as ISO string
     },
     {
       id: 3,
       message: 'Hover me too!',
       sender: 'bot',
-      createdAt: new Date(Date.now() - 2 * 60000), // 2 minutes ago - will show time
+      createdAt: DateTime.now().minus({ minutes: 2 }).toISO(), // 2 minutes ago as ISO string
     },
     {
       id: 4,
