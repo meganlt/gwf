@@ -4,11 +4,8 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardAction,
-  CardContent,
   CardDescription,
-  CardFooter,
-  CardHeader,
+  CardContent,
   CardTitle,
 } from "@/components/ui/card"
 
@@ -38,22 +35,6 @@ function LoginPage() {
 
   return (
     <>
-
-
-<Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-    <CardAction>Card Action</CardAction>
-  </CardHeader>
-  <CardContent>
-    <p>Card Content</p>
-  </CardContent>
-  <Button variant="primary" size="fixedsm" type="submit">
-          Log In
-        </Button>
-</Card>
-
 
       <h2>Login Page</h2>
       <form onSubmit={handleLogIn}>
@@ -88,6 +69,15 @@ function LoginPage() {
           <h3>{errorMessage}</h3>
         )
       }
+      <Card>
+        <CardContent>
+          <CardTitle>Card Title</CardTitle>
+          <CardDescription>Card Description</CardDescription>
+          <Button variant="primary" size="fixedsm" type="submit">
+            Log In
+          </Button>
+        </CardContent>
+      </Card>
     </>
   );
 }
