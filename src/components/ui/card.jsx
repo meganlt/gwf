@@ -16,7 +16,9 @@ function Card({
   );
 }
 
+
 function CardContent({
+
   className,
   ...props
 }) {
@@ -30,6 +32,7 @@ function CardContent({
       {...props} />
   );
 }
+
 
 function CardTitle({ className, ...props }) {
   return (
@@ -63,4 +66,5 @@ export {
   CardContent,
   CardTitle,
   CardDescription,
+
 }

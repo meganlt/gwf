@@ -17,7 +17,7 @@ CREATE TABLE "user" (
   "role" VARCHAR (80),
   "first_name" VARCHAR (255),
   "last_name" VARCHAR (255),
-  "prounouns" VARCHAR (255),
+  "pronouns" VARCHAR (255),  
   "gender_identity" VARCHAR (255),
   "age" INT,
   "period_status" VARCHAR(80),
