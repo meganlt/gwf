@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 import useStore from '../../zustand/store';
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardDescription,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card"
 
 
 function LoginPage() {
@@ -29,25 +35,32 @@ function LoginPage() {
 
   return (
     <>
+
       <h2>Login Page</h2>
       <form onSubmit={handleLogIn}>
-        <label htmlFor="username">Email:</label>
+        <label htmlFor="username">Email</label>
         <Input
+          placeholder="Enter email"
           type="text"
           id="username"
           required
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password">Password:</label>
-        <input
+        <label htmlFor="password">Password</label>
+        <Input
+          placeholder="Enter password"
           type="password"
           id="password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button type="submit">
+        <Button variant="primary" size="fixedlrg" type="submit">
+          Log In
+        </Button>
+        {/* tester button for secondary button color styling */}
+         <Button variant="secondary" size="fixedlrg" type="submit">
           Log In
         </Button>
       </form>
@@ -56,6 +69,15 @@ function LoginPage() {
           <h3>{errorMessage}</h3>
         )
       }
+      <Card>
+        <CardContent>
+          <CardTitle>Card Title</CardTitle>
+          <CardDescription>Card Description</CardDescription>
+          <Button variant="primary" size="fixedsm" type="submit">
+            Log In
+          </Button>
+        </CardContent>
+      </Card>
     </>
   );
 }

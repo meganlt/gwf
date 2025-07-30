@@ -2,6 +2,7 @@ import useStore from '../../zustand/store'
 import { Button } from "@/components/ui/button"
 
 
+
 function HomePage() {
   const user = useStore((state) => state.user);
   const logOut = useStore((state) => state.logOut);

@@ -1,5 +1,4 @@
 import * as React from "react"
-
 import { cn } from "@/lib/utils"
 
 function Card({
@@ -10,14 +9,16 @@ function Card({
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        "bg-[#D1E9FF] text-black flex flex-col gap-6 rounded-[12px] border py-6 shadow-sm w-[350px] h-[226px] shrink-0",
         className
       )}
       {...props} />
   );
 }
 
-function CardHeader({
+
+function CardContent({
+
   className,
   ...props
 }) {
@@ -32,70 +33,38 @@ function CardHeader({
   );
 }
 
-function CardTitle({
-  className,
-  ...props
-}) {
+
+function CardTitle({ className, ...props }) {
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
-      {...props} />
+      className={cn(
+        "text-[#414651] text-[20px] leading-[20px] font-bold",
+        className
+      )}
+      {...props}
+    />
   );
 }
 
-function CardDescription({
-  className,
-  ...props
-}) {
+function CardDescription({ className, ...props }) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
-      {...props} />
-  );
-}
-
-function CardAction({
-  className,
-  ...props
-}) {
-  return (
-    <div
-      data-slot="card-action"
       className={cn(
-        "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
+        "text-[#535862] text-[14px] font-semibold leading-[20px]",
         className
       )}
-      {...props} />
+      {...props}
+    />
   );
 }
 
-function CardContent({
-  className,
-  ...props
-}) {
-  return (<div data-slot="card-content" className={cn("px-6", className)} {...props} />);
-}
-
-function CardFooter({
-  className,
-  ...props
-}) {
-  return (
-    <div
-      data-slot="card-footer"
-      className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
-      {...props} />
-  );
-}
 
 export {
   Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardAction,
-  CardDescription,
   CardContent,
+  CardTitle,
+  CardDescription,
+
 }
