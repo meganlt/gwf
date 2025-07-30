@@ -9,16 +9,14 @@ function Card({
     <div
       data-slot="card"
       className={cn(
-        "bg-[#D1E9FF] text-black flex flex-col gap-6 rounded-[12px] border py-6 shadow-sm w-[350px] h-[226px] shrink-0",
+        "text-black flex flex-col gap-6 rounded-[12px] border py-6 shadow-sm shrink-0",
         className
       )}
       {...props} />
   );
 }
 
-
-function CardContent({
-
+function CardHeader({
   className,
   ...props
 }) {
@@ -33,6 +31,27 @@ function CardContent({
   );
 }
 
+function CardContent({
+  className,
+  ...props
+}) {
+  return (<div data-slot="card-content" className={cn("px-6", className)} {...props} />);
+}
+
+function CardAction({
+  className,
+  ...props
+}) {
+  return (
+    <div
+      data-slot="card-action"
+      className={cn(
+        "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
+        className
+      )}
+      {...props} />
+  );
+}
 
 function CardTitle({ className, ...props }) {
   return (
@@ -60,11 +79,24 @@ function CardDescription({ className, ...props }) {
   );
 }
 
+function CardFooter({
+  className,
+  ...props
+}) {
+  return (
+    <div
+      data-slot="card-footer"
+      className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
+      {...props} />
+  );
+}
 
 export {
   Card,
+  CardHeader,
   CardContent,
+  CardAction,
   CardTitle,
   CardDescription,
-
+  CardFooter,
 }

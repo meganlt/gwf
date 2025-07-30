@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import useStore from '../../zustand/store';
-
+import { Button } from "@/components/ui/button"
 
 function Nav() {
   const user = useStore((store) => store.user);
+  const logOut = useStore((state) => state.logOut);
+
 
   return (
     <nav>
@@ -26,8 +28,11 @@ function Nav() {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
-            <li><NavLink to="/diana">Diana</NavLink></li>
+            <li><NavLink to="/chat-page">Diana</NavLink></li>
             <li><NavLink to="/profile">User Profile</NavLink></li>
+            <li><Button variant="outline" onClick={logOut}>
+          Log Out
+        </Button></li>
           </>
         )
       }
