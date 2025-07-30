@@ -21,16 +21,23 @@ router.get('/', (req, res) => {
 // Handles the logic for creating a new user. The one extra wrinkle here is
 // that we hash the password before inserting it into the database.
 router.post('/register', (req, res, next) => {
+  console.log('req.body:', req.body);
+  const first_name = req.body.firstName;
+  const last_name = req.body.lastName;
   const username = req.body.username;
   const hashedPassword = encryptLib.encryptPassword(req.body.password);
+  const age = req.body.age;
+  const avatar = req.body.avatar;
+  const gender = req.body.gender;
+  const pronouns = req.body.pronouns;
 
   const sqlText = `
     INSERT INTO "user"
-      ("username", "password")
+      ("first_name", "last_name", "username", "password", "pronouns", "gender_identity", "age", "avatar")
       VALUES
-      ($1, $2);
+      ($1, $2, $3, $4, $5, $6, $7, $8);
   `;
-  const sqlValues = [username, hashedPassword];
+  const sqlValues = [first_name, last_name, username, hashedPassword, pronouns, gender, age, avatar];
 
   pool.query(sqlText, sqlValues)
     .then(() => {
