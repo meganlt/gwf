@@ -19,7 +19,7 @@ function ChatPage() {
     const messageDate = DateTime.fromISO(isoString);
     const isToday = now.hasSame(messageDate, 'day');
 
- if (isToday) {
+    if (isToday) {
       return messageDate.toLocaleString(DateTime.TIME_SIMPLE);
     } else {
       return messageDate.toLocaleString({ month: 'short', day: 'numeric' });
@@ -41,7 +41,6 @@ function ChatPage() {
     },
     {
       id: 3,
-      message: 'Hover me too!',
       sender: 'bot',
       createdAt: DateTime.now().minus({ minutes: 2 }).toISO(), // 2 minutes ago as ISO string
     },
@@ -60,9 +59,9 @@ function ChatPage() {
       <Card className="flex flex-col flex-1 max-w-2xl w-full mx-auto my-6 shadow-lg">
         <CardContent className="flex flex-col flex-1 p-4 space-y-4 overflow-y-auto">
           <h1 className="text-2xl font-semibold text-left bg-primary text-white flex items-center gap-2 p-2 rounded-lg">
-  <img src="diana-bubble.png" alt="Diana" width="50" height="60" />
-  Diana
-</h1>
+            <img src="diana-bubble.png" alt="Diana" width="50" height="60" />
+            Diana
+          </h1>
           <div className="flex-1 space-y-2 overflow-y-auto">
             <ChatMessageList>
               {messages.map((message, index) => {
@@ -127,23 +126,22 @@ function ChatPage() {
             placeholder="Type your message..."
             className="flex-1"
           />
-         <Button type="submit" size="icon">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="1.5"
-    stroke="currentColor"
-    className="size-5"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
-    />
-  </svg>
-</Button>
-
+          <Button type="submit" size="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+              />
+            </svg>
+          </Button>
         </form>
       </Card>
     </main>
@@ -151,5 +149,3 @@ function ChatPage() {
 }
 
 export default ChatPage;
-
-
