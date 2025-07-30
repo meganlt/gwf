@@ -41,6 +41,7 @@ function ChatPage() {
     },
     {
       id: 3,
+      message: 'Hover me, too!',
       sender: 'bot',
       createdAt: DateTime.now().minus({ minutes: 2 }).toISO(), // 2 minutes ago as ISO string
     },
