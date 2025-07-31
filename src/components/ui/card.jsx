@@ -1,18 +1,22 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-function Card({
-  className,
-  ...props
-}) {
+function Card({ variant = "blue", className, ...props }) {
+  const bgClass = {
+    blue: "bg-[#D1E9FF]",
+    pink: "bg-[#FADEF4]",
+  }[variant];
+
   return (
     <div
       data-slot="card"
       className={cn(
-        "text-black flex flex-col gap-6 rounded-[12px] border py-6 shadow-sm shrink-0",
+        bgClass,
+        "text-black flex flex-col gap-6 rounded-[12px] border py-6 shadow-sm w-[350px] h-[226px] shrink-0",
         className
       )}
-      {...props} />
+      {...props}
+    />
   );
 }
 

@@ -69,7 +69,7 @@ function LoginPage() {
           <h3>{errorMessage}</h3>
         )
       }
-      <Card>
+      <Card variant="pink">
         <CardContent>
           <CardTitle>Card Title</CardTitle>
           <CardDescription>Card Description</CardDescription>
