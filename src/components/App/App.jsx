@@ -12,6 +12,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Profile from '../Profile/Profile';
 import ChatPage from '../ChatPage/ChatPage';
+import PageContainer from '../ui/page-container';
 
 function App() {
   const user = useStore((state) => state.user);
@@ -23,6 +24,8 @@ function App() {
 
   return (
     <>
+    {/* Container to size all content within mobile dimensions outlined in the Figma */}
+    {/* <PageContainer> */}
       <header>
         <h1><img src="flora-logo.png" alt="Flora Web App"/></h1>
         <Nav />
@@ -114,6 +117,7 @@ function App() {
       <footer>
         <p>Copyright © {new Date().getFullYear()}</p>
       </footer>
+      {/* </PageContainer> */}
     </>
   );
 }
