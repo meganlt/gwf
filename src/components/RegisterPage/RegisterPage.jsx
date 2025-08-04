@@ -12,7 +12,7 @@ const steps = [Step1, Step2, Step3, Step4, Step5 ];
 function RegisterPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const register = useStore((state) => state.register)
+  const register = useStore((state) => state.register);
   const errorMessage = useStore((state) => state.authErrorMessage);
   const setAuthErrorMessage = useStore((state) => state.setAuthErrorMessage);
 

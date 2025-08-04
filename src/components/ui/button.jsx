@@ -17,9 +17,6 @@ const buttonVariants = cva(
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-9",
-        //gwf custom buttons
-        fixedsm: "w-[125px] h-[44px] px-0 pr-0 pl-5",
-        fixedlrg: "w-[343px] h-[44px] px-0 py-0"
       },
     },
     defaultVariants: {

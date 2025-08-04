@@ -25,7 +25,7 @@ function App() {
   return (
     <>
     {/* Container to size all content within mobile dimensions outlined in the Figma */}
-    {/* <PageContainer> */}
+    <PageContainer>
       <header>
         <h1><img src="flora-logo.png" alt="Flora Web App"/></h1>
         <Nav />
@@ -117,7 +117,7 @@ function App() {
       <footer>
         <p>Copyright © {new Date().getFullYear()}</p>
       </footer>
-      {/* </PageContainer> */}
+      </PageContainer>
     </>
   );
 }

@@ -56,11 +56,11 @@ function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button variant="primary" size="fixedlrg" type="submit">
+        <Button variant="primary" size="default" type="submit">
           Log In
         </Button>
         {/* tester button for secondary button color styling */}
-         <Button variant="secondary" size="fixedlrg" type="submit">
+         <Button variant="secondary" size="default" type="submit">
           Log In
         </Button>
       </form>
@@ -73,7 +73,7 @@ function LoginPage() {
         <CardContent>
           <CardTitle>Card Title</CardTitle>
           <CardDescription>Card Description</CardDescription>
-          <Button variant="primary" size="fixedsm" type="submit">
+          <Button variant="primary" size="default" type="submit">
             Log In
           </Button>
         </CardContent>
