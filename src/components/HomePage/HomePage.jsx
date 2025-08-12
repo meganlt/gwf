@@ -30,7 +30,7 @@ function HomePage() {
             <div>
               <h2>Talk to Diana</h2>
               <p>Have a question or want to talk. Diana is here for you.</p>
-              <Button asChild><a href="/chat-page">(icon) Let's Chat</a></Button>
+              <Button asChild size="default"><a href="/chat-page">(icon) Let's Chat</a></Button>
             </div>
             <img src="diana-bubble.png" alt="Image of Diana in a bubble"/>
           </CardContent>
@@ -46,7 +46,7 @@ function HomePage() {
               
               <h3>Sprouting Up</h3>
               <p>When signs of growth start to appear let’s be prepared!</p>
-              <Button asChild><a href="#">Begin Course</a></Button>
+              <Button asChild size="default"><a href="#">Begin Course</a></Button>
             </div>
           </CardContent>
         </Card>
