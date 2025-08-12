@@ -1,7 +1,17 @@
 import { Button } from "@/components/ui/button"
 import clsx from "clsx"
 
-const avatars = ["👩", "👨", "🧑", "👧", "🧔", "👩‍🦱"]
+const avatars = [
+  "/avatar-alien.png",
+  "/avatar-clown.png",
+  "/avatar-mime.png",
+  "/avatar-mouse.png",
+  "/avatar-super.png",
+  "/avatar-unicorn.png",
+  "/avatar-woman1.png",
+  "/avatar-woman2.png",
+  "/avatar-woman3.png",
+]
 
 function Step4({ data, onNext, onBack, onUpdate }) {
   return (
@@ -18,7 +28,11 @@ function Step4({ data, onNext, onBack, onUpdate }) {
               data.avatar === avatar ? "border-blue-500" : "border-gray-300"
             )}
           >
-            {avatar}
+            <img
+                src={avatar}
+                alt="Avatar"
+                className="w-16 h-16"
+              />
           </button>
         ))}
       </div>
