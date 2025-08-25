@@ -43,7 +43,7 @@ router.post("/chat", async (req, res) => {
       return res.status(400).json({ error: "Latest user message is empty" });
     }
 
-    // 1) Embed the latest user message
+    // 1) Embed user message
     const embeddingResp = await openai.embeddings.create({
       model: "text-embedding-3-small",
       input: latestMessage,
