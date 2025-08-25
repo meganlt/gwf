@@ -43,7 +43,8 @@
     "server": "nodemon --watch server server/server.js",
     "build": "vite build",
     "test": "vitest",
-    "seed": "node ./scripts/loadDb.js"
+    "seed": "node ./scripts/loadDb.js",
+    "empty": "node ./scripts/emptyDb.js"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
