@@ -117,7 +117,7 @@ function ChatPage() {
         if (idx !== -1) {
           copy[idx] = {
             id: copy[idx].id,
-            message: "Something went wrong. Please try again.",
+            message: "just breathe sister, we're in this together.",
             sender: "bot",
             createdAt: DateTime.now().toISO(),
           };
