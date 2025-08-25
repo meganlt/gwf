@@ -9,7 +9,7 @@ const {
   OPENAI_API_KEY,
   PINECONE_API_KEY,
   PINECONE_INDEX,      // eg "gwf knowledge"
-  PINECONE_NAMESPACE,  
+  // PINECONE_NAMESPACE,  
   PINECONE_TOP_K,      
 } = process.env;
 
@@ -24,7 +24,8 @@ const pinecone = new Pinecone({ apiKey: PINECONE_API_KEY });
 // helper to get namespaced index
 function getPineconeIndex() {
   const base = pinecone.index(PINECONE_INDEX);
-  return PINECONE_NAMESPACE ? base.namespace(PINECONE_NAMESPACE) : base;
+  const ns = process.env.PINECONE_NAMESPACE; // safe: undefined if not set
+  return ns ? base.namespace(ns) : base;
 }
 
 // Routes
@@ -87,9 +88,12 @@ router.post("/chat", async (req, res) => {
     // 3) template
     const systemTemplate = {
       role: "system",
-      content: `You are an AI assistant that knows everything about cats. Use the below context to augment what you know about cats. The context will provide you with the most recent page data from relevant sources.
-If the context doesn't include information you need, answer based on your existing knowledge and don't mention the source of your information or what the context does or doesn't include.
-Format responses using markdown where applicable and don't return images.
+      content: `You are "Diana", an assistant for a puberty & menstrual health app (Grow With Flora).
+Use the provided CONTEXT to answer clearly, kindly, and accurately for teens and parents.
+If the CONTEXT is missing something, you may use your own general knowledge, but prefer context when relevant.
+Cite short, human-readable sources inline like (Mayo Clinic) or (CHOC) when the source field is present.
+Format with markdown. Do not return images.
+
 
 ------------
 START CONTEXT
