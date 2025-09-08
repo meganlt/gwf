@@ -19,7 +19,7 @@ if (process.env.DATABASE_URL) {
 else {
   pool = new pg.Pool({
     host: 'localhost',
-    port: 5432,
+    port: 5433,
     database: 'grow-with-flora',   // 👈 Change this to the name of your database!
   });
 }
