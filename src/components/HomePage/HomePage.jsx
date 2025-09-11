@@ -15,13 +15,18 @@ function HomePage() {
   const user = useStore((state) => state.user);
 
   return (
-    <div className='home-content bg-accent'>
+    <div className='home-content bg-(--accent)'>
       <section className='home-intro p-6'>
         <h1 className="hidden">Home Page</h1>
-        <img src="avatar-mouse.png" alt="Your avatar image"/>
-        <p className='text-4xl text-accent-foreground'>Hey, {user.username}</p>
-        <p>What would you like to do today?</p>
-        
+        <div className="flex flex-row">
+          <div className="basis-20 pr-4">
+            <img src="avatar-mouse.png" alt="Your avatar image" className='max-w-15'/>
+          </div>
+          <div>
+            <p className='text-2xl text-accent-foreground font-bold'>Hey, {user.username}!</p>
+            <p>What would you like to do today?</p>
+          </div>        
+        </div>
       </section>
       
       <section className='home-content bg-white p-6 rounded-2xl'>
