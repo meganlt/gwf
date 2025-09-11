@@ -14,13 +14,22 @@ import {
 function HomePage() {
   const user = useStore((state) => state.user);
 
+  console.log(user);
+
   return (
     <div className='home-content bg-(--accent)'>
       <section className='home-intro p-6'>
         <h1 className="hidden">Home Page</h1>
         <div className="flex flex-row">
           <div className="basis-20 pr-4">
-            <img src="avatar-mouse.png" alt="Your avatar image" className='max-w-15'/>
+            <img 
+              src={user.avatar && user.avatar.trim() !== "" 
+                    ? user.avatar 
+                    : "/avatar-mouse.png"} 
+              alt="Your avatar image" 
+              className="max-w-15" 
+            />
+
           </div>
           <div>
             <p className='text-2xl text-accent-foreground font-bold'>Hey, {user.username}!</p>
