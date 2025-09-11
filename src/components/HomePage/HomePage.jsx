@@ -14,8 +14,6 @@ import {
 function HomePage() {
   const user = useStore((state) => state.user);
 
-  console.log(user);
-
   return (
     <div className='home-content bg-(--accent)'>
       <section className='home-intro p-6'>
