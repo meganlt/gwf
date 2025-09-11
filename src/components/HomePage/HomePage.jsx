@@ -32,7 +32,7 @@ function HomePage() {
 
           </div>
           <div>
-            <p className='text-2xl text-accent-foreground font-bold'>Hey, {user.username}!</p>
+            <p className='text-2xl text-accent-foreground font-bold'>Hey, {user.first_name || user.username}!</p>
             <p>What would you like to do today?</p>
           </div>        
         </div>
