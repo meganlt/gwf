@@ -12,7 +12,7 @@ function Profile(){
             <h1 className='text-4xl text-center'>Profile</h1>
         </div> */}
 
-<div className="bg-pink-global">
+    <div className="bg-pink-global">
         <h2 className='text-3xl text-center text-pink-global font-semibold'>Account Settings</h2>
         <div className="flex items-center gap-4">
             <img src="avatar-mouse.png" className='w-16 h-16'/>
@@ -22,7 +22,7 @@ function Profile(){
                 <a href="#">Edit Profile</a>
             </div>
         </div>
-</div>
+    </div>
         <div className='profile-settings'>
         <h3>Email</h3>
             <p>{user.username} <a href="#">edit icon</a></p>
