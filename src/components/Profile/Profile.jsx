@@ -8,17 +8,22 @@ function Profile(){
 
   return (
     <>
-        <div>
+        {/* <div>
             <h1 className='text-4xl text-center'>Profile</h1>
+        </div> */}
+
+<div className="bg-pink-global">
+        <h2 className='text-3xl text-center text-pink-global font-semibold'>Account Settings</h2>
+        <div className="flex items-center gap-4">
+            <img src="avatar-mouse.png" className='w-16 h-16'/>
+            <div className="flex flex-col">
+                <h2 className='text-2xl font-medium'>{user.first_name}</h2>
+                <p className='font-medium'>{user.gender_identity} | {user.pronouns}</p>
+                <a href="#">Edit Profile</a>
+            </div>
         </div>
-        <div className='profile-header text-center'>
-            <img src="avatar-mouse.png" className='mx-auto'/>
-            <a href="#">Edit Profile</a>
-            <h2 className='text-4xl'>{user.first_name}</h2>
-            <p>{user.gender_identity} | {user.pronouns}</p>
-        </div>
+</div>
         <div className='profile-settings'>
-            <h2 className='text-3xl'>Account Settings</h2>
         <h3>Email</h3>
             <p>{user.username} <a href="#">edit icon</a></p>
             <h3>AI Personality</h3>
