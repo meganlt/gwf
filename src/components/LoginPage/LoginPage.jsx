@@ -69,15 +69,6 @@ function LoginPage() {
           <h3>{errorMessage}</h3>
         )
       }
-      <Card>
-        <CardContent>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-          <Button variant="primary" size="default" type="submit">
-            Log In
-          </Button>
-        </CardContent>
-      </Card>
     </>
   );
 }
