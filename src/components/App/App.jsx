@@ -26,7 +26,7 @@ function App() {
     <>
     {/* Container to size all content within mobile dimensions outlined in the Figma */}
     <PageContainer>
-      <header className=' bg-(--accent)'>
+      <header className='bg-(--accent)'>
         <h1><img src="flora-logo.png" alt="Flora Web App"/></h1>
         <Nav />
       </header>

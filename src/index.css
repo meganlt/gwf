@@ -320,3 +320,12 @@ button:focus {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .text-pink-global {
+    color: #FF4F88;
+  }
+  .bg-pink-global {
+    background-color: #FADEF4;
+  }
+}
