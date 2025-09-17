@@ -15,7 +15,13 @@ function Profile(){
     <div className="bg-pink-global">
         <h2 className='text-3xl text-center text-pink-global font-semibold'>Account Settings</h2>
         <div className="flex items-center gap-4">
-            <img src="avatar-mouse.png" className='w-16 h-16'/>
+            <img 
+                src={user.avatar && user.avatar.trim() !== "" 
+                    ? user.avatar 
+                    : "/avatar-mouse.png"}
+                alt="Your avatar image" 
+                className='w-16 h-16'
+            />
             <div className="flex flex-col">
                 <h2 className='text-2xl font-medium'>{user.first_name}</h2>
                 <p className='font-medium'>{user.gender_identity} | {user.pronouns}</p>

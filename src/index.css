@@ -257,8 +257,8 @@ button:focus {
   --secondary-foreground: oklch(0.2304 0.0209 264.0365);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: oklch(0.9299 0.0421 333.21);
+  --accent-foreground: oklch(0.6237 0.1992 2.8211);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
