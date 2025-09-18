@@ -63,36 +63,28 @@ function Profile(){
             <h1 className='text-4xl text-center'>Profile</h1>
         </div> */}
 
-    <div className="bg-pink-global">
-        <h2 className='text-3xl text-center text-pink-global font-semibold'>Account Settings</h2>
-        <div className="flex items-center gap-4">
+    <div className="">
+        <h2 className='text-3xl text-center text-pink-global font-semibold mt-4'>Profile</h2>
+        <div className="profile-header text-center flex flex-col items-center mb-8 mt-8">
             <img 
                 src={user.avatar && user.avatar.trim() !== "" 
                     ? user.avatar 
                     : "/avatar-mouse.png"}
                 alt="Your avatar image" 
-                className='w-16 h-16'
+                className='w-[160px] h-[160px]'
             />
-            <div className="flex flex-col">
+            <a href="#" className='text-pink-global'>Edit Profile</a>
+            <div className="">
                 <h2 className='text-2xl font-medium'>{user.first_name}</h2>
                 <p className='font-medium'>{user.gender_identity} | {user.pronouns}</p>
-                <a href="#">Edit Profile</a>
+                
             </div>
         </div>
     </div>
-        <div className='profile-settings'>
+        <div className='profile-settings mb-8'>
+        <h2 className='text-3xl'>Account Settings</h2>
         <h3>Email</h3>
             <p>{username} <a href="#">edit icon</a></p>
-            <h3>AI Personality</h3>
-            <p>
-                { dianaPersonalityOn ? (
-                    <strong>toggle is on</strong>
-                ) : (
-                    <strong>toggle is off</strong>
-                )
-                }
-            </p>  
-           
         </div>
         <div className='edit-profile'>
             <p>to do: put in dialog</p>
