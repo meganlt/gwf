@@ -140,7 +140,7 @@ function Profile(){
                     ))}
                 </SelectContent>
             </Select>
-            <Button onClick={updateProfile}>Confirm</Button>
+            <Button onClick={updateProfile}>Update Profile Information</Button>
         </div>
         
     </>
