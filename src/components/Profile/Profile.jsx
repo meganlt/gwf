@@ -18,6 +18,7 @@ function Profile(){
     const [avatar, setAvatar] = useState(user.avatar);
     const [username, setUsername] = useState(user.username);
 
+    // Values for Editing Profile dropdowns and avatar selection
     const genderOptions = ["Girl/Woman", "Boy/Man", "Non-binary", "Genderfluid", "Agender", "Intersex", "Bigender", "Prefer not to say"];
     const pnOptions = [ "She/Her", "He/Him", "They/Them", "Ze/Zir", "Xe/Xem", "It/Its"];
     const avatarOptions = [
@@ -32,10 +33,8 @@ function Profile(){
         "/avatar-woman3.png",
     ]
 
-    console.log('user info from store:', user);
-
+    // Function to handle profile update
     const updateProfile = async (e) => {
-        console.log('in updateProfile function', e);
 
         const updatedInfo = {
             first_name,
