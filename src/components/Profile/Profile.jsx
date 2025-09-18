@@ -5,6 +5,7 @@ import useStore from '../../zustand/store';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch"
 
 function Profile(){
     const user = useStore((store) => store.user);
@@ -81,16 +82,17 @@ function Profile(){
     </div>
         <div className='profile-settings'>
         <h3>Email</h3>
-            <p>{user.username} <a href="#">edit icon</a></p>
+            <p>{username} <a href="#">edit icon</a></p>
             <h3>AI Personality</h3>
             <p>
-                { user.personality_on ? (
+                { dianaPersonalityOn ? (
                     <strong>toggle is on</strong>
                 ) : (
                     <strong>toggle is off</strong>
                 )
                 }
-            </p>    
+            </p>  
+           
         </div>
         <div className='edit-profile'>
             <p>to do: put in dialog</p>
@@ -114,10 +116,17 @@ function Profile(){
                 </button>
             ))}
             </div>
+            <h3>AI Personality</h3>
+             <Switch
+                checked={dianaPersonalityOn}
+                onCheckedChange={setDianaPersonalityOn}
+            />  
             <h3>First Name</h3>
-            <Input type="text" placeholder={user.first_name} onChange={(e) => setFirstName(e.target.value)}/>
+            <Input type="text" placeholder={first_name} onChange={(e) => setFirstName(e.target.value)}/>
             <h3>Last Name</h3>
-            <Input type="text" placeholder={user.last_name} onChange={(e) => setLastName(e.target.value)}/>
+            <Input type="text" placeholder={last_name} onChange={(e) => setLastName(e.target.value)}/>
+            <h3>Email</h3>
+            <Input type="text" placeholder={username} onChange={(e) => setUsername(e.target.value)}/>
             <h3>Pronouns</h3>
             <Select defaultValue={pronouns} onValueChange={(value) => setPronouns(value)}>
                 <SelectTrigger>
