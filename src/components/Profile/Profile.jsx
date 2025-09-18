@@ -48,11 +48,10 @@ function Profile(){
 
         try {
             await axios.put('/api/user/update', updatedInfo, { withCredentials: true });
-            alert('Account updated successfully!');
+            console.log('Account updated successfully!');
             fetchUser();
             } catch (error) {
             console.error('Error updating account:', error);
-            alert('Failed to update account. Please try again later.');
         }
     }
 
