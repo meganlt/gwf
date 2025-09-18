@@ -49,6 +49,32 @@ router.post('/register', (req, res, next) => {
     });
 });
 
+// Handles the logic for updating a user's profile information.
+router.put('/update', async (req, res) => {
+  console.log('in PUT /api/user/update with req.body:', req.body, req.user);
+
+  const sqlText = `
+    UPDATE "user"
+    SET "first_name" = $1,
+        "last_name" = $2,
+        "pronouns" = $3,
+        "gender_identity" = $4,
+        "personality_on" = $5,
+        "avatar" = $6,
+        "username" = $7
+    WHERE "id" = $8;
+    `;
+  const values = [ req.body.first_name, req.body.last_name, req.body.pronouns, req.body.gender_identity, req.body.dianaPersonalityOn, req.body.avatar, req.body.username, req.user.id ];
+
+  pool.query(sqlText, values).then((results) => {
+    res.sendStatus(201);
+  }).catch((err) => {
+    console.log('Error updating user profile:', err);
+    res.sendStatus(500);
+  })
+
+});
+
 // Handles the logic for logging in a user. When this route receives
 // a request, it runs a middleware function that leverages the Passport
 // library to instantiate a session if the request body's username and

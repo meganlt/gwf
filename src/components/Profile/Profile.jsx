@@ -1,10 +1,45 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import useStore from '../../zustand/store';
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
 function Profile(){
     const user = useStore((store) => store.user);
+    const fetchUser = useStore((state) => state.fetchUser);
+    const [first_name, setFirstName] = useState(user.first_name);
+    const [last_name, setLastName] = useState(user.last_name);
+    const [pronouns, setPronouns] = useState(user.pronouns);
+    const [gender_identity, setGenderIdentity] = useState(user.gender_identity);
+    const [dianaPersonalityOn, setDianaPersonalityOn] = useState(user.personality_on);
+    const [avatar, setAvatar] = useState(user.avatar);
+    const [username, setUsername] = useState(user.username);
+
+
+    console.log('user info from store:', user);
+
+    const updateProfile = async (e) => {
+        console.log('in updateProfile function', e);
+
+        const updatedInfo = {
+            first_name,
+            last_name,
+            pronouns,
+            gender_identity,
+            dianaPersonalityOn,
+            avatar,
+            username
+        }
+
+        try {
+            await axios.put('/api/user/update', updatedInfo, { withCredentials: true });
+            alert('Account updated successfully!');
+            fetchUser();
+            } catch (error) {
+            console.error('Error updating account:', error);
+            alert('Failed to update account. Please try again later.');
+        }
+    }
 
   return (
     <>
@@ -47,7 +82,7 @@ function Profile(){
             <h2 className='text-3xl'>Edit Profile</h2>
             <a href="#">change avatar</a>
             <h3>First Name</h3>
-            <Input type="email" placeholder={user.first_name}/>
+            <Input type="email" placeholder={user.first_name} onChange={(e) => setFirstName(e.target.value)}/>
             <h3>Last Name</h3>
             <Input type="email" placeholder={user.last_name}/>
             <h3>Pronouns</h3>
@@ -60,6 +95,7 @@ function Profile(){
                 <option>It/Its</option>
                 <option>Name only</option>
             </select>
+            <Button onClick={updateProfile}>Confirm</Button>
         </div>
         
     </>
